@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import aqiService from './services/aqi'
 import locatorService from './services/locator'
 
-const App = () => {
+export default function App() {
   const [info, setInfo] = useState({})
   const [location, setLocation] = useState({})
   const key = 'location'
@@ -23,15 +23,15 @@ const App = () => {
         .then(newLocation => setLocationAndGetInfo(newLocation))
     }
   }
-
+  
   function setLocationAndGetInfo(newLocation) {
     console.log(newLocation)
     setLocation(newLocation)
     window.localStorage.setItem(key, JSON.stringify(newLocation))
     aqiService
       .getAQI(newLocation)
-      .then(response => setInfo(response.data))
-      .catch(error => console.error(error))
+      .then(data => setInfo(data))
+      .catch(error => console.error("File not found:", error))
   }
   useEffect(getOrCreateUser, [])
 
@@ -42,5 +42,3 @@ const App = () => {
     </>
   )
 }
-
-export default App;
