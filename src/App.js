@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import aqiService from './services/aqi'
 import locatorService from './services/locator'
+import Footer from './components/Footer'
+import MainPage from './components/MainPage'
+import Header from './components/Header'
 
 export default function App() {
   const [info, setInfo] = useState({})
@@ -37,8 +40,17 @@ export default function App() {
 
   return(
     <>
-      <h2>Data for {location.city}, {location.country}</h2>
-      <p>{JSON.stringify(info)}</p>
+      <Header 
+        initialCity={location.city}
+        initialCountry={location.country}
+        setLocation={setLocationAndGetInfo}
+      />
+      <MainPage 
+        info={info} 
+        setLocation={setLocationAndGetInfo} 
+        initialCity={location.city} 
+        initialCountry={location.country} />
+      <Footer />
     </>
   )
 }
