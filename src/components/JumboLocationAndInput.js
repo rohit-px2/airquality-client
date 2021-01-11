@@ -16,7 +16,7 @@ export default function JumboLocationAndInput({city, country, setLocation}) {
 	}
 
 	return (
-		<Jumbotron className="p-5 m-0">
+		<Jumbotron className="p-5 m-0 transparent text-white">
 			<div className="row row-header justify-content-center">
 				<div className="col-12 mr-5">
 					<h1 style={titleStyle} className="text-center">{city}, {country}</h1>

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./assets/images/cloud-1-blur.jpg');
 }
 
 code {
@@ -14,4 +15,8 @@ code {
 
 .container-fluid {
 	padding: 0 !important;
+}
+
+.transparent {
+  background: transparent !important;
 }

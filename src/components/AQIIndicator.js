@@ -8,14 +8,25 @@ const healthMessages = {
 	"Very Unhealthy": "Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.",
 	"Hazardous": "Everyone should avoid all outdoor exertion." 
 }
-const healthColor = {
-	"Safe": "green",
-	"Moderately Safe": "yellow",
-	"Moderately Unhealthy": "orange",
-	"Unhealthy": "red",
-	"Very Unhealthy": "violet",
-	"Hazardous": "#C04000" // mahogany
+
+const Colors = {
+	green: "#43a047",
+	yellow: "#fdd835",
+	orange: "#f4511e",
+	red: "#e53935",
+	violet: "#5e35b1",
+	"mahogany": "#C04000"
 }
+
+const healthColor = {
+	"Safe": Colors.green,
+	"Moderately Safe": Colors.yellow,
+	"Moderately Unhealthy": Colors.orange,
+	"Unhealthy": Colors.red,
+	"Very Unhealthy": Colors.violet,
+	"Hazardous": Colors.mahogany // mahogany
+}
+
 
 export default function AQIIndicator({aqi}) {
 	const [health, setHealth] = useState('')
@@ -43,11 +54,12 @@ export default function AQIIndicator({aqi}) {
 		backgroundColor: healthColor[health]
 	}
 
+
 	return(
-		<Jumbotron style={backgroundStyle} className="bg-primary text-white">
+		<Jumbotron style={backgroundStyle} className="text-white transparent">
 			<Card style={healthColorStyle} className="mr-auto p-3">
 				<CardBody>
-					<h2 className="text-dark">{health}</h2>
+					<h2 className="text-dark text-center">{health}</h2>
 				</CardBody>
 			</Card>
 			<p className="h4 ml-auto p-3">{getMessage()}</p>
