@@ -48,8 +48,7 @@ export default function App() {
       <MainPage 
         info={info} 
         setLocation={setLocationAndGetInfo} 
-        initialCity={location.city} 
-        initialCountry={location.country} />
+      />
       <Footer />
     </>
   )

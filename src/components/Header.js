@@ -11,9 +11,9 @@ export default function Header({setLocation, initialCity, initialCountry}) {
 	}
 
 	return(
-		<nav className="navbar navbar-default">
+		<nav className="navbar navbar-light bg-dark">
 			<div className="container-fluid">
-				<a href="/" className="navbar-brand">AQInfo</a>
+				<a href="/" className="navbar-brand text-light">AQInfo</a>
 				<form onSubmit={handleSubmit} className="navbar-form navbar-left ml-auto">
 				<input
 					className="m-1 rounded"

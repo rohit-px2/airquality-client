@@ -1,22 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
+import JumboLocationAndInput from './JumboLocationAndInput'
+import AQIIndicator from './AQIIndicator'
 
-export default function MainPage({info, setLocation, initialCountry, initialCity}) {
-	const [city, setCity] = useState(initialCity || '')
-	const [country, setCountry] = useState(initialCountry || '')
-
-	function handleSubmit() {
-		setLocation({city, country})
-	}
-
+export default function MainPage({info, setLocation}) {
 	return (
-		<div className="container">
-			<h2>Data for {info.city}, {info.country}</h2>
+		<div className="container-fluid">
+			<JumboLocationAndInput
+				setLocation={setLocation}
+				country={info.country}
+				city={info.city}
+			/>
+			<AQIIndicator aqi={info.aqi} />
 	        <p>{JSON.stringify(info)}</p>
-			<form onSubmit={handleSubmit}>
-				<input type="text" value={city} onChange={event => setCity(event.target.value)} placeholder="City..."/>
-				<input type="text" value={country} onChange={event => setCountry(event.target.value)} placeholder="Country..."/>
-				<button type="submit">Submit</button>
-			</form>
 		</div>
 	)
 }
