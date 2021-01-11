@@ -10,7 +10,7 @@ export default function App() {
   const [location, setLocation] = useState({})
   const key = 'location'
 
-  function getOrCreateUser() {
+  function retrieveLocation() {
     // Get location from localstorage, if it's not there, use geolocation.
     const storedLocation = window.localStorage.getItem(key)
     if (storedLocation) {
@@ -36,7 +36,7 @@ export default function App() {
       .then(data => setInfo(data))
       .catch(error => console.error("File not found:", error))
   }
-  useEffect(getOrCreateUser, [])
+  useEffect(retrieveLocation, [])
 
   return(
     <>
