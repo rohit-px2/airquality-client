@@ -4,6 +4,15 @@ import { useHistory }from 'react-router-dom'
 import userService from '../services/userCreation'
 import * as App from '../App'
 
+/**
+	A signup modal.
+	@param isOpen
+	Whether the modal is open or not.
+	@param toggleModal
+	A function to toggle the SignupModal on or off.
+	@param createUser
+	A function to create the user.
+*/
 export default function SignupModal({isOpen, toggleModal, createUser}) {
 	let history = useHistory()
 	const [message, setMessage] = useState('')
@@ -29,6 +38,9 @@ export default function SignupModal({isOpen, toggleModal, createUser}) {
 			})
 	}
 
+	/**
+		Clears the state of the component. This is used when the user clicks out of the modal.
+	*/
 	function clearState() {
 		setUsername('')
 		setPassword('')
@@ -36,6 +48,9 @@ export default function SignupModal({isOpen, toggleModal, createUser}) {
 		setMessage('')
 	}
 
+	/**
+		Closes the modal.
+	*/
 	function closeModal() {
 		clearState()
 		toggleModal()

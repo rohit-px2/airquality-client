@@ -1,8 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
+/**
+	Dashboard: Displays all locations the user added to their dashboard.
+*/
 export default function Dashboard({user, setLocation}) {
 
+	/**
+		Returns the user to the main page, which displays the AQI data of location.
+	*/
 	function getAqiInfo(location) {
 		setLocation(location)
 		window.location.assign("/")

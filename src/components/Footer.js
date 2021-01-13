@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+	Footer: The footer component of the AQInfo website. The color is transparent and contains attributions,
+	as well as links (with more to be potentially added).
+	
+*/
 export default function Footer() {
 	return (
 		<footer className="container py-5 transparent">

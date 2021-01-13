@@ -4,6 +4,17 @@ import AQIIndicator from './AQIIndicator'
 import StatsDisplay from './StatsDisplay'
 import Helmet from 'react-helmet'
 
+/**
+	The main page of the application.
+	@param info
+	The AQI information. Contains city & country data, as well as AQI statistics.
+	@param setLocation
+	A function to set and update the location being displayed to a new one.
+	@param user
+	User information.
+	@param addLocation
+	A function to add a location to the user's dashboard.
+*/
 export default function MainPage({info, setLocation, user, addLocation}) {
 	return (
 		<>

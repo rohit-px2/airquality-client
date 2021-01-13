@@ -3,6 +3,15 @@ import {Modal, ModalBody, ModalHeader} from 'reactstrap'
 import loginService from '../services/login'
 import { useHistory } from 'react-router-dom'
 
+/**
+	The login modal.
+	@param {boolean} isOpen
+	Whether the modal is open or not.
+	@param {function} toggleModal
+	Function that toggles the modal on and off.
+	@param {function} setUser
+	Function that updates the user.
+*/
 export default function LoginModal({isOpen, toggleModal, setUser}) {
 	let history = useHistory()
 	const [username, setUsername] = useState('')

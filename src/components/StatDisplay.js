@@ -37,6 +37,12 @@ const measurements = {
 	"h": gCm3
 }
 
+/**
+	Displays a Stat (defined above) in a block-style display, where the stat name is on the left
+	and the number is on the right.
+	@param stat
+	The stat to be shown.
+*/
 export default function StatDisplay({stat}) {
 	if (stat !== undefined && stat !== null) {
 		const accessKey = Object.keys(stat)[0]

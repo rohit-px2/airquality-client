@@ -2,21 +2,39 @@ import React, {useState} from 'react'
 import LoginModal from './LoginModal'
 import SignupModal from './SignupModal'
 
+/**
+	The site header.
+	@param user
+	The user's information.
+	@param clearUser
+	A function to clear the user, which is used in the "Log Out" button.
+	@param setUser
+	A function to update the user (logging in)
+*/
 export default function Header({user, clearUser, setUser}) {
 	const [isLoginOpen, setLoginOpen] = useState(false)
 	const [isSignupOpen, setSignupOpen] = useState(false)
 
+	/**
+		Toggles the LoginModal on and off.
+	*/
 	function toggleLogin() {
 		console.log("Toggling login...")
 		setLoginOpen(!isLoginOpen)
 	}
 
+	/**
+		Toggles the SignupModal on and off.
+	*/
 	function toggleSignup() {
 		console.log("Toggling signup...")
 		setSignupOpen(!isSignupOpen)
 	}
 
-	function signUpOrName() {
+	/**
+		Displays a "sign up" button if there is no user logged in, otherwise shows a "Log Out" button.
+	*/
+	function signUpOrLogOut() {
 		if(user === null || user === undefined) {
 			return (
 				<button className="btn btn-outline-light rounded" onClick={() => toggleSignup()}>
@@ -33,11 +51,15 @@ export default function Header({user, clearUser, setUser}) {
 		}
 	}
 
+	/** Logs out the user. */
 	function logOut() {
 		clearUser()
 		window.location.replace("/")
 	}
 
+	/**
+		Displays a "log in" button if the user is not logged in, otherwise shows the user's name.
+	*/
 	function logButton() {
 		if(user === null || user === undefined) {
 			return (
@@ -69,7 +91,7 @@ export default function Header({user, clearUser, setUser}) {
 						{logButton()}
 					</li>
 					<li className="nav-item">
-						{signUpOrName()}
+						{signUpOrLogOut()}
 					</li>
 				</ul>
 			</div>

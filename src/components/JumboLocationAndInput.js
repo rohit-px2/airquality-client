@@ -6,6 +6,9 @@ export default function JumboLocationAndInput({city, country, setLocation, user,
 	const [inputCity, setInputCity] = useState('')
 	const [inputCountry, setInputCountry] = useState('')
 
+	/**
+		Updates the location.
+	*/
 	function handleSubmit() {
 		setLocation({
 			city: inputCity,
@@ -23,6 +26,10 @@ export default function JumboLocationAndInput({city, country, setLocation, user,
 		const location = {city, country}
 		addLocation(location)
 	}
+
+	/**
+		Returns true if the current city has not been added to the user's dashboard.
+	*/
 	function cityNotAdded() {
 		if (user) {
 			if (!user.locations) return false
@@ -33,6 +40,9 @@ export default function JumboLocationAndInput({city, country, setLocation, user,
 		}
 		return false
 	}
+	/**
+		Adds a "add to dashboard" button if the current city has not been added to the user's dashboard.
+	*/
 	function appendLocationButton() {
 		if (user && cityNotAdded()) {
 			return (

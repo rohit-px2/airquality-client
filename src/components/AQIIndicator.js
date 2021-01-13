@@ -27,10 +27,18 @@ const healthColor = {
 	"Hazardous": Colors.mahogany // mahogany
 }
 
-
+/**
+	A hero-style component that displays the Air Quality Index of a location, gives a concise
+	definition of the safety of the location, and an advisory.
+	@param aqi
+	The Air Quality Index of the location.
+*/
 export default function AQIIndicator({aqi}) {
 	const [health, setHealth] = useState('')
 
+	/**
+		Finds the "health value" (Safe, Unsafe, etc.) based on the Air Quality Index.
+	*/
 	function findHealth() {
 		if(aqi === null) return;
 		else if(aqi <= 50) setHealth("Safe");
@@ -42,6 +50,9 @@ export default function AQIIndicator({aqi}) {
 	}
 	useEffect(findHealth, [aqi])
 
+	/**
+		Returns the message which corresponds to the location's health.
+	*/
 	function getMessage() {
 		return healthMessages[health]
 	}
