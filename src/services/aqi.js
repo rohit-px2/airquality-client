@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 const baseUrl = `/api/info`
 const addDashboardUrl = '/api/users/location'
 

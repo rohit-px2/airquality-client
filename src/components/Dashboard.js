@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 export default function Dashboard({user, setLocation}) {
 
@@ -18,10 +19,15 @@ export default function Dashboard({user, setLocation}) {
 	}) : null
 
 	return (
+		<>
+		<Helmet>
+			<title>{`Dashboard`}</title>
+		</Helmet>
 		<div className="container">
 			<h2 className="text-center text-white p-2">Dashboard</h2>
 			<hr style={{backgroundColor: "white"}} className="m-2"/>
 			{locationCards}
 		</div>
+		</>
 	)
 }
