@@ -37,7 +37,7 @@ export default function AQIIndicator({aqi}) {
 		else if(aqi > 50 && aqi <= 100) setHealth("Moderately Safe");
 		else if(aqi > 100 && aqi <= 150) setHealth("Moderately Unhealthy");
 		else if(aqi > 150 && aqi <= 200) setHealth("Unhealthy");
-		else if(aqi > 200 && aqi <= 300) setHealth("Very Unhealthy");
+		else if(aqi > 200 && aqi <= 300) setHealth("Very Unhealthy")
 		else if(aqi > 300) setHealth("Hazardous");
 	}
 	useEffect(findHealth, [aqi])
@@ -59,10 +59,11 @@ export default function AQIIndicator({aqi}) {
 		<Jumbotron style={backgroundStyle} className="text-white transparent">
 			<Card style={healthColorStyle} className="mr-auto p-3">
 				<CardBody>
+					<h1 className="text-dark text-center">AQI: {aqi}</h1>
 					<h2 className="text-dark text-center">{health}</h2>
 				</CardBody>
 			</Card>
-			<p className="h4 ml-auto p-3">{getMessage()}</p>
+			<p className="h4 ml-auto p-3 text-center">{getMessage()}</p>
 		</Jumbotron>
 	)
 }

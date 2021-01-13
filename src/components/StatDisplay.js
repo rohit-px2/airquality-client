@@ -12,8 +12,8 @@ const abbreviationsMap = {
 	"o3": "Ozone",
 	"so2": "Sulfur Dioxide",
 	"no2": "Nitrogen Dioxide",
-	"pm10": "PM10",
-	"pm25": "PM2.5",
+	"pm10": <span>PM<sub>10</sub></span>,
+	"pm25": <span>PM<sub>2.5</sub></span>,
 	"t": "Temperature",
 	"w": "Wind Speed",
 	"p": "Air Pressure",
@@ -21,7 +21,7 @@ const abbreviationsMap = {
 }
 
 const ppm = " ppm"
-const degC = "C"
+const degC = <span><sup> o</sup>C</span>
 const kmH = " km/h"
 const hPa = " hPa"
 const gCm3 = <span> g/cm<sup>3</sup></span>

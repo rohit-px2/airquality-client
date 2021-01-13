@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import {Jumbotron} from 'reactstrap'
+import aqiService from '../services/aqi'
 
-export default function JumboLocationAndInput({city, country, setLocation}) {
+export default function JumboLocationAndInput({city, country, setLocation, user, addLocation}) {
 	const [inputCity, setInputCity] = useState('')
 	const [inputCountry, setInputCountry] = useState('')
 
@@ -15,8 +16,37 @@ export default function JumboLocationAndInput({city, country, setLocation}) {
 		fontSize: "4rem",
 	}
 
+	/**
+		Appends the current location to the user's profile.
+	*/
+	function appendLocation() {
+		const location = {city, country}
+		addLocation(location)
+	}
+	function cityNotAdded() {
+		if (user) {
+			if (!user.locations) return false
+			else {
+				const notAdded = user.locations.find(location => location.city === city && location.country === country) === undefined;
+				return notAdded
+			}
+		}
+		return false
+	}
+	function appendLocationButton() {
+		if (user && cityNotAdded()) {
+			return (
+				<button className="btn btn-secondary mr-auto" onClick={appendLocation} type="button">
+					Add to Dashboard
+				</button>
+			)
+		}
+		return null
+	}
+
 	return (
 		<Jumbotron className="p-5 m-0 transparent text-white">
+			{appendLocationButton()}
 			<div className="row row-header justify-content-center">
 				<div className="col-12 mr-5">
 					<h1 style={titleStyle} className="text-center">{city}, {country}</h1>
@@ -46,6 +76,7 @@ export default function JumboLocationAndInput({city, country, setLocation}) {
 						<button type="submit" className="btn btn-primary">Submit</button>
 					</div>
 				</form>
+				
 			</div>
 		</Jumbotron>
 	)
