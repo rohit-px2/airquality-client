@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap'
+
 export default function Dashboard({user, setLocation}) {
 
 	function getAqiInfo(location) {

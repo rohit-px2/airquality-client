@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const baseUrl = `http://localhost:3002/api/info`
-const addDashboardUrl = 'http://localhost:3002/api/users/location'
+const baseUrl = `/api/info`
+const addDashboardUrl = '/api/users/location'
 
 let token = null
 

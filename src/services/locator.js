@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3002/api/location'
+const baseUrl = '/api/location'
 // Using the IP-API api.
 // Get user's city and country from their IP.
 async function getLocation() {
