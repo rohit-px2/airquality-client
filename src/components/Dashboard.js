@@ -32,6 +32,7 @@ export default function Dashboard({user, setLocation}) {
 		<div className="container">
 			<h2 className="text-center text-white p-2">Dashboard</h2>
 			<hr style={{backgroundColor: "white"}} className="m-2"/>
+			{user === null ? <p className="text-white h3 text-center">Please login to view your dashboard.</p> : null}
 			{locationCards}
 		</div>
 		</>
